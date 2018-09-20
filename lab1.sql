@@ -11,7 +11,6 @@
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
--- Added
 CREATE TABLE Tutor (
 TutorKey INT NOT NULL ,
 TutorLastName CHAR(45),
@@ -23,7 +22,6 @@ TutorStatus CHAR(45),
 PRIMARY KEY (TutorKey)
 );
 
--- Added
 CREATE TABLE Course (
 CourseKey CHAR(6) NOT NULL ,
 CourseName CHAR(45),
@@ -31,7 +29,6 @@ CourseDescription CHAR(45),
 PRIMARY KEY (CourseKey)
 );
 
--- Added
 CREATE TABLE Ethnicity (
 EthnicityKey CHAR(20) NOT NULL ,
 EthnicityDescription CHAR(45),
@@ -59,13 +56,9 @@ StudentAge INT,
 StudentCitizen CHAR(5), 
 StudentWorkerRetraining CHAR(20), 
 EthnicityKey CHAR(20) NOT NULL,
-PRIMARY KEY (EthnicityKey, StudentKey), 
-FOREIGN KEY (EthnicityKey) REFERENCES Ethnicity(EthnicityKey)
+PRIMARY KEY (StudentKey)
 );
 
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
--- Cannot Add
--- ERROR 1215 (HY000): Cannot add foreign key constraint
 CREATE TABLE StudentCourse (
 StudentKey INT NOT NULL ,
 CourseKey CHAR(6) NOT NULL,
@@ -74,9 +67,7 @@ PRIMARY KEY (StudentKey, CourseKey),
 FOREIGN KEY (StudentKey) REFERENCES Students(StudentKey),
 FOREIGN KEY (CourseKey) REFERENCES Course(CourseKey)
 );
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
--- Added
 CREATE TABLE Sessions (
 SessionDateKey DATE NOT NULL,
 SessionTimeKey DATETIME NOT NULL,
@@ -87,7 +78,6 @@ SessionMaterialCovered CHAR(45),
 PRIMARY KEY (SessionDateKey)
 );
 
--- Added
 CREATE TABLE Requests (
 RequestKey INT NOT NULL ,
 RequestDate DATE,
@@ -97,7 +87,6 @@ StudentKey INT ,
 PRIMARY KEY (RequestKey)
 );
 
--- Added
 CREATE TABLE RequestNote (
 RequestNoteKey DATETIME NOT NULL,
 RequestID INT,
