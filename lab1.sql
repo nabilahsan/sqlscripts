@@ -11,6 +11,10 @@
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    -- -- -- -- -- -- CREATE TABLES -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
 CREATE TABLE Tutor (
 TutorKey INT NOT NULL ,
 TutorLastName CHAR(45),
@@ -94,3 +98,33 @@ RequestNoteText CHAR(100),
 PRIMARY KEY (RequestNoteKey)
 );
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    -- -- -- -- -- -- INSERT VALUES -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+-- Tutor
+INSERT INTO Tutor VALUES ();
+
+-- Course
+INSERT INTO Course VALUES ();
+
+-- Ethnicity
+INSERT INTO Ethnicity VALUES ();
+
+-- RequestNote
+INSERT INTO RequestNote VALUES ();
+
+-- Requests
+INSERT INTO Requests VALUES();
+
+-- Sessions
+INSERT INTO Sessions VALUES();
+
+-- StudentCourse
+INSERT INTO StudentCourse VALUES();
+
+-- Students
+INSERT INTO Students VALUES();
+
+-- TutorCourse
+INSERT INTO TutorCourse VALUES();
