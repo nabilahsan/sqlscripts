@@ -103,13 +103,45 @@ PRIMARY KEY (RequestNoteKey)
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- Tutor
-INSERT INTO Tutor VALUES ();
+INSERT INTO Tutor VALUES ('980010000', 'Roberts', 'Martha', '2065551467', 'mroberts@yahoo.com', '2010-1-6', 'Active');
+
+INSERT INTO Tutor VALUES ('980010001', 'Brown', 'Susan', '2065553528', 'sb4@hotmail.com', '2009-2-1', 'Active');
+
+INSERT INTO Tutor VALUES ('980010002', 'Foster', 'Daniel', '2065553490', 'foster32@aol.com', '2009-2-1', 'Active');
+
+INSERT INTO Tutor VALUES ('980010003','Anderson', 'Nathan', '2065556320', 'NULL', '2009-3-2', 'Inactive');
+
+INSERT INTO Tutor VALUES ('980010004','Lewis', 'Ginger', '2065552985', 'ginger@hotmail.com', '2009-3-15', 'Active');
 
 -- Course
-INSERT INTO Course VALUES ();
+INSERT INTO Course VALUES ('ITC110', 'Beginning Programming', 'Programming using C#');
+
+INSERT INTO Course VALUES ('ITC220', 'Introduction to Databases', 'Overview of databse design and topics');
+
+INSERT INTO Course VALUES ('ITC255', 'System Analytics', 'System Analysis and design');
+
+INSERT INTO Course VALUES ('MAT107', 'Applied Math', 'Applied Math for computers');
+
+INSERT INTO Course VALUES ('ENG211', 'Technical Writing', 'Technical Writing for IT');
+
+INSERT INTO Course VALUES ('WEB110', 'Beginning Web Page Design', 'Basic xhtml');
+
+INSERT INTO Course VALUES ('ITC226', 'Database Adminstration', 'SQL Server Adminstration');
 
 -- Ethnicity
-INSERT INTO Ethnicity VALUES ();
+INSERT INTO Ethnicity VALUES ('Caucasian', 'White, European Origin');
+
+INSERT INTO Ethnicity VALUES ('Asian', 'Chinese, Japanese, Korean, Southeast Asian');
+
+INSERT INTO Ethnicity VALUES ('AfrAmer', 'African American or Arican Origin');
+
+INSERT INTO Ethnicity VALUES ('Hispanic', 'Mexican, Central or South American, Caribbean');
+
+INSERT INTO Ethnicity VALUES ('Pacific', 'Pacific Islander');
+
+INSERT INTO Ethnicity VALUES ('Mideast', 'Arabic or Persian');
+
+INSERT INTO Ethnicity VALUES ('Other', 'Other or Not Disclosed');
 
 -- RequestNote
 INSERT INTO RequestNote VALUES ();
