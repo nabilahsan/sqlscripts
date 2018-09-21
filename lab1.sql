@@ -54,7 +54,7 @@ StudentKey INT NOT NULL,
 StudentFirstName CHAR(20), 
 StudentLastName CHAR(20), 
 StudentEmail CHAR(20), 
-StudentPhone INT, 
+StudentPhone INT NULL, 
 StudentGender CHAR(5), 
 StudentAge INT, 
 StudentCitizen CHAR(5), 
@@ -74,12 +74,12 @@ FOREIGN KEY (CourseKey) REFERENCES Course(CourseKey)
 
 CREATE TABLE Sessions (
 SessionDateKey DATE NOT NULL,
-SessionTimeKey DATETIME NOT NULL,
+SessionTimeKey TIME NOT NULL,
 TutorKey INT NOT NULL,
 CourseKey CHAR(6),
+StudentKey INT NULL,
 SessionStatus CHAR(45),
-SessionMaterialCovered CHAR(45),
-PRIMARY KEY (SessionDateKey)
+SessionMaterialCovered CHAR(45)
 );
 
 CREATE TABLE Requests (
@@ -144,19 +144,103 @@ INSERT INTO Ethnicity VALUES ('Mideast', 'Arabic or Persian');
 INSERT INTO Ethnicity VALUES ('Other', 'Other or Not Disclosed');
 
 -- RequestNote
-INSERT INTO RequestNote VALUES ();
+INSERT INTO RequestNote VALUES ('2010-1-6 2:00:00', '1001', 'Only offered once a year and not a lot of requests for this class');
+
+INSERT INTO RequestNote VALUES ('2010-1-10 10:00:00', '1001', 'No students available, because a capstone class would have to get someone off campus');
 
 -- Requests
-INSERT INTO Requests VALUES();
+INSERT INTO Requests VALUES('1001', '2010-1-5', 'ITC226', 'Active','990001010' );
 
 -- Sessions
-INSERT INTO Sessions VALUES();
+INSERT INTO Sessions VALUES('2009-10-20','14:00:00','980010001','WEB110','990001000','C','CSS');
+
+INSERT INTO Sessions VALUES('2009-10-20','13:00:00','980010001','ITC110','990001000','C','For next loop');
+
+INSERT INTO Sessions VALUES('2009-11-20','10:30:00','980010001','ITC220','990001002','C','Relations');
+
+INSERT INTO Sessions VALUES('2009-11-5','10:00:00','980010001','ITC220',NULL,'NS',NULL);
+
+INSERT INTO Sessions VALUES('2009-11-10','13:00:00','980010001','MAT107','990001004','C','Binary Numbers');
+
+INSERT INTO Sessions VALUES('2009-11-10','14:00:00','980010001','WEB110','990001000','C','Web Forms');
+
+INSERT INTO Sessions VALUES('2010-1-15','9:30:00','980010001','ITC255','990001000','C','Use cases');
+
+INSERT INTO Sessions VALUES('2010-1-20','11:00:00','980010001','ENG211','990001003','C','Document structure');
+
+INSERT INTO Sessions VALUES('2010-1-22','14:00:00','980010001','MAT107','990001005','NS',NULL);
+
+INSERT INTO Sessions VALUES('2010-2-5','10:30:00','980010001','ITC255','990001000','C','Feasibility');
+
+INSERT INTO Sessions VALUES('2010-2-10','13:30:00','980010001','MAT107',NULL,NULL,NULL);
+
+INSERT INTO Sessions VALUES('2010-2-10','14:00:00','980010001','MAT107',NULL,NULL,NULL);
+
+INSERT INTO Sessions VALUES('2010-2-13','10:00:00','980010001','ITC255',NULL,NULL,NULL);
+
+INSERT INTO Sessions VALUES('2010-2-14','11:00:00','980010001','ENG211',NULL,NULL,NULL);
 
 -- StudentCourse
-INSERT INTO StudentCourse VALUES();
+INSERT INTO StudentCourse VALUES('990001000', 'ITC220', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001000', 'ITC110', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001000', 'WEB110', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001002', 'ITC220', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001002', 'ITC110', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001004', 'MAT107', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001004', 'WEB110', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001007', 'ITC110', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001009', 'ITC110', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001009', 'ITC220', 'Fall09');
+
+INSERT INTO StudentCourse VALUES('990001009', 'MAT107', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001002', 'ITC255', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001002', 'ENG211', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001003', 'ITC255', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001003', 'MAT107', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001005', 'MAT107', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001010', 'ITC255', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001010', 'ENG211', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001000', 'ITC255', 'Winter10');
+
+INSERT INTO StudentCourse VALUES('990001000', 'MAT107', 'Winter10');
 
 -- Students
-INSERT INTO Students VALUES();
+INSERT INTO Students VALUES('990001000', 'Laura', 'Peterson', 'NULL', '2065559318', 'F','23','True','False','Caucasian' );
+
+INSERT INTO Students VALUES('990001002', 'Shanon','Carter','shanon@carter.org','2065554301', 'F','32','True','True','AfrAmer');
+
+INSERT INTO Students VALUES('990001003', 'Sandy','Martinez','sandym@gmail.com','2065551158', 'F','18','True','False','Hispanic');
+
+INSERT INTO Students VALUES('990001004', 'Lu','Nguyen','lstar@yahoo.com','2065552938', 'M','19','False','False','Asian');
+
+INSERT INTO Students VALUES('990001005', 'Mark','Zulof','NULL',NULL, 'NULL',NULL,'NULL','NULL','NULL');
+
+INSERT INTO Students VALUES('990001006', 'Patty','Taylor','p147@marketplace.com','2065552076', 'F','42','True','True','Caucasian');
+
+INSERT INTO Students VALUES('990001007', 'Lawrence','Thomas','NULL',NULL, 'M','24','True','False','Caucasian');
+
+INSERT INTO Students VALUES('990001008', 'Ron','Bradbury','rbradbury@mars.org','2065557296', 'M','53','True','False','Caucasian');
+
+INSERT INTO Students VALUES('990001009', 'Juan','Carlos','carlos23@hotmail.com','2065559134', 'M','25','False','False','Hispanic');
+
+INSERT INTO Students VALUES('990001010', 'Ly','Min','lymin@hotmail.com','2065552789', 'F','20','False','False','Asian');
 
 -- TutorCourse
 INSERT INTO TutorCourse VALUES('980010002','ITC255');
