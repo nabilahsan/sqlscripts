@@ -256,3 +256,42 @@ INSERT INTO TutorCourse VALUES('980010001','ITC220');
 INSERT INTO TutorCourse VALUES('980010001','WEB110');
 
 INSERT INTO TutorCourse VALUES('980010003','ITC110');
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    -- -- -- -- -- --  Queries for LAB 1 -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+/* Question a */
+SELECT StudentFirstName, StudentLastName, StudentGender 
+FROM Students
+WHERE StudentGender = 'M';
+
+/* Question b */
+SELECT TutorKey, CourseKey, SessionDateKey, StudentKey
+FROM Sessions
+WHERE SessionDateKey 
+BETWEEN '2009-11-1' and '2009-11-15';
+
+/* Question c*/
+SELECT count(*) AS totalOver25
+FROM Students
+WHERE StudentAge > '25';
+
+/*Question d*/
+-- Returns Empty Set. Will need to confirm.
+SELECT TutorKey AS TotalSessions
+FROM Sessions
+WHERE SessionStatus = 'C'
+GROUP BY TutorKey
+HAVING count(*) < 4;
+
+/*Question e*/
+CREATE VIEW vw_Sessions
+AS SELECT TutorLastName AS Tutor, 
+StudentKey AS Student,
+SessionDateKey AS Date,
+SessionTimeKey AS Time,
+CourseKey AS Course
+FROM Sessions, Tutor;
+
+SELECT * FROM vw_Sessions;
