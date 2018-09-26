@@ -394,3 +394,4 @@ INSERT INTO Tutor VALUES ('980010002', 'Foster', 'Daniel', '2065553490', 'foster
 INSERT INTO Tutor VALUES ('980010003','Anderson', 'Nathan', '2065556320', 'NULL', '01/MAR/09', 'Inactive');
 
 INSERT INTO Tutor VALUES ('980010004','Lewis', 'Ginger', '2065552985', 'ginger@hotmail.com', '15/MAR/09', 'Active');
+
