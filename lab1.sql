@@ -295,3 +295,102 @@ CourseKey AS Course
 FROM Sessions, Tutor;
 
 SELECT * FROM vw_Sessions;
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- Oracle SQL edition
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+CREATE TABLE Tutor (
+TutorKey NUMBER(10) NOT NULL ,
+TutorLastName CHAR(45),
+TutorFirstName CHAR(45),
+TutorPhone NUMBER(10),
+TutorEmail CHAR(45),
+TutorHireDate DATE,
+TutorStatus CHAR(45),
+PRIMARY KEY (TutorKey)
+);
+
+CREATE TABLE Course (
+CourseKey CHAR(6) NOT NULL ,
+CourseName CHAR(45),
+CourseDescription CHAR(45),
+PRIMARY KEY (CourseKey)
+);
+
+CREATE TABLE Ethnicity (
+EthnicityKey CHAR(20) NOT NULL ,
+EthnicityDescription CHAR(45),
+PRIMARY KEY (EthnicityKey)
+);
+
+CREATE TABLE TutorCourse (
+TutorKey NUMBER(10) NOT NULL ,
+CourseKey CHAR(6) NOT NULL ,
+PRIMARY KEY (TutorKey, CourseKey),
+FOREIGN KEY (TutorKey) REFERENCES Tutor (TutorKey),
+FOREIGN KEY (CourseKey) REFERENCES Course (CourseKey)
+);
+
+create table Students( 
+StudentKey NUMBER(10) NOT NULL, 
+StudentFirstName CHAR(20), 
+StudentLastName CHAR(20), 
+StudentEmail CHAR(20), 
+StudentPhone NUMBER(10) NULL, 
+StudentGender CHAR(5), 
+StudentAge NUMBER(10), 
+StudentCitizen CHAR(5), 
+StudentWorkerRetraining CHAR(20), 
+EthnicityKey CHAR(20) NOT NULL,
+PRIMARY KEY (StudentKey)
+);
+
+CREATE TABLE StudentCourse (
+StudentKey NUMBER(10) NOT NULL ,
+CourseKey CHAR(6) NOT NULL,
+StudentCourseQuarter CHAR(45),
+PRIMARY KEY (StudentKey, CourseKey),
+FOREIGN KEY (StudentKey) REFERENCES Students(StudentKey),
+FOREIGN KEY (CourseKey) REFERENCES Course(CourseKey)
+);
+
+CREATE TABLE Sessions (
+SessionDateKey DATE NOT NULL,
+SessionTimeKey TIMESTAMP(0) NOT NULL,
+TutorKey NUMBER(10) NOT NULL,
+CourseKey CHAR(6),
+StudentKey NUMBER(10) NULL,
+SessionStatus CHAR(45),
+SessionMaterialCovered CHAR(45)
+);
+
+CREATE TABLE Requests (
+RequestKey NUMBER(10) NOT NULL ,
+RequestDate DATE,
+CourseKey CHAR(6) ,
+RequestStatus CHAR(45),
+StudentKey NUMBER(10) ,
+PRIMARY KEY (RequestKey)
+);
+
+CREATE TABLE RequestNote (
+RequestNoteKey TIMESTAMP(0) NOT NULL,
+RequestID NUMBER(10),
+RequestNoteText CHAR(100),
+PRIMARY KEY (RequestNoteKey)
+);
+
+
+-- Inserting queries
+
+-- Oracle SQL Date format:  "DD-MON-YY"
+INSERT INTO Tutor VALUES ('980010000', 'Roberts', 'Martha', '2065551467', 'mroberts@yahoo.com', '01/JAN/10', 'Active');
+
+INSERT INTO Tutor VALUES ('980010001', 'Brown', 'Susan', '2065553528', 'sb4@hotmail.com', '01/FEB/09', 'Active');
+
+INSERT INTO Tutor VALUES ('980010002', 'Foster', 'Daniel', '2065553490', 'foster32@aol.com', '01/FEB/09', 'Active');
+
+INSERT INTO Tutor VALUES ('980010003','Anderson', 'Nathan', '2065556320', 'NULL', '01/MAR/09', 'Inactive');
+
+INSERT INTO Tutor VALUES ('980010004','Lewis', 'Ginger', '2065552985', 'ginger@hotmail.com', '15/MAR/09', 'Active');
