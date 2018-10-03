@@ -71,3 +71,8 @@ insert into Enroll values('S1020', 'CSC201A','B');
 insert into Enroll values('S1020', 'MTH101B','A');
 --
 
+--Question 1
+select facId, name
+from Faculty
+order by name;
+
