@@ -25,7 +25,7 @@ department char(15),
 faculRank char(25),
 PRIMARY KEY (facId)
 );
---
+
 
 insert into Faculty values('F101','Adams', 'Art', 'Professor');
 insert into Faculty values('F105','Tanaka', 'CSC', 'Instructor');
@@ -56,9 +56,10 @@ create table Enroll(
 stuId CHAR(5) not null,
 classNumber char(10) not null,
 grade char(2) null,
-PRIMARY KEY(stuId, classNumber),
-FOREIGN KEY (stuId) REFERENCES Student(stuId) 
+FOREIGN KEY (stuId) REFERENCES Student(stuId)
 );
+
+drop table Enroll;
 
 insert into Enroll values('S1001', 'ART103A','A');
 insert into Enroll values('S1001', 'HST205A','C');
@@ -76,3 +77,11 @@ select facId, name
 from Faculty
 order by name;
 
+--Question 5
+SELECT F.facId 
+FROM Faculty F
+WHERE F.department = 'History'
+UNION
+SELECT C.facId
+FROM Classes C
+WHERE C.room = 'H221';
