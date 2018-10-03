@@ -13,9 +13,10 @@ insert into Student values('S1001', 'Smith', 'Tom', 'History', '90');
 insert into Student values('S1002', 'Chin', 'Ann', 'Math', '36');
 insert into Student values('S1005', 'Lee', 'Perry', 'History', '3');
 insert into Student values('S1010', 'Burns', 'Edward', 'Art', '63');
-insert into Student values('S1013', 'McCarthy', 'Owen', 'Math', '8');
+insert into Student values('S1013', 'McCarthy', 'Owen', 'Math', '0');
 insert into Student values('S1015', 'Jones', 'Mary', 'Math', '42');
 insert into Student values('S1020', 'Rivera', 'Jane', 'CSC', '15');
+
 --
 
 create table Faculty(
@@ -77,6 +78,15 @@ select facId, name
 from Faculty
 order by name;
 
+--Question 4
+SELECT name, facId
+FROM Faculty
+WHERE facId IN (
+SELECT facId
+FROM Classes
+WHERE room = 'H221'
+);
+
 --Question 5
 SELECT F.facId 
 FROM Faculty F
@@ -85,3 +95,31 @@ UNION
 SELECT C.facId
 FROM Classes C
 WHERE C.room = 'H221';
+
+--Question 6
+SELECT avg(S.credits)
+FROM Student S;
+
+--Question 7
+SELECT S.major, SUM(S.credits) 
+FROM Student S
+GROUP BY S.major
+ORDER BY S.major;
+
+--Question 8
+SELECT classNumber, count(classNumber)
+FROM Enroll
+group by classNumber;
+
+--Question 9
+SELECT *
+FROM Classes 
+WHERE classNumber LIKE 'MTH%';
+
+--Question 10
+CREATE OR REPLACE VIEW histmath AS
+SELECT lastName, firstName, stuId
+FROM Student S
+WHERE major = 'History';
+
+SELECT * FROM histmath;
